@@ -1,4 +1,4 @@
-projeto: devops
+projeto: lovelace_devops
 AWS_access_key: "{{ AWSAccessKeyId }}"
 AWS_secret_key: "{{ AWSSecretKey }}"
 instance_type: t2.micro
@@ -13,4 +13,4 @@ vpc_name: "{{ projeto }}-vpc"
 name_service: app-node
 route_tag: "{{ projeto }}-route"
 sub_tag: "{{ projeto }}-subnet"
-name_aim_user_s3: digitals3
+name_aim_user_s3: digitals3lovelace
