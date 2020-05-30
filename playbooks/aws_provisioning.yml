@@ -135,10 +135,13 @@
       iam_user:
         aws_access_key: "{{ AWS_access_key }}"
         aws_secret_key: "{{ AWS_secret_key }}"          
-        name: "{{ name_aim_user_s3 }}"
+        name: "{{ item }}"
         managed_policy:
           - arn:aws:iam::aws:policy/AmazonS3FullAccess
         state: present
+       with_sequence: 
+        - user_app_homolog
+        - user_app_prod
       register: iuser
 
     - name: Create a buckets
