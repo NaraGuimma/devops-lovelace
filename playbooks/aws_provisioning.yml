@@ -81,7 +81,7 @@
       ec2_instance:
         aws_access_key: "{{ AWS_access_key }}"
         aws_secret_key: "{{ AWS_secret_key }}"
-        name: "{{ name_service }}-{{ item }}"
+        name: "{{ item }}"
         key_name: "{{ KeyPairDev }}"
         security_group: "{{ security_group }}"
         vpc_subnet_id: "{{ vpc_subnet_ids }}"
@@ -91,7 +91,10 @@
             assign_public_ip: true
         state: running
         region: "{{ region }}"
-      with_sequence: start=1 end="{{ count }}"
+      with_sequence: 
+        - app-jenkins
+        - app-homolog
+        - app-prod
       register: ec2
 
     - name: Create Internet Gateway with VPC
